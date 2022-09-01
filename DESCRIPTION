@@ -1,0 +1,5 @@
+Package: metaIPDA
+Type: Package
+Title: Meta-analysis using IPDA (Individual Pooled Data Approach)
+Version: 0.0.1.0
+RoxygenNote: 7.2.1
