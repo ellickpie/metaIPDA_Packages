@@ -984,8 +984,10 @@ metaIPDA = function(
       "df random",
       "p random" 
     )
- 
+
+  
 a = kable(output_table) %>% kableExtra::kable_styling() %>% 
-  kable_classic(full_width = F, html_font = "Arial", font_size = 14)
+  kable_classic(full_width = F, html_font = "Arial", font_size = 14) %>% 
+  column_spec(., 1, width = "4cm") %>% column_spec(., 2:9, width = "2cm")
 return(a) 
 }
