@@ -5,7 +5,8 @@
 #' @param DV the name of DV, must be in character format, e.g., "DV01"
 #' @return kable outputs of IPDA meta analysis results
 #' @examples 
-#' output <- metaIPDA ()
+#' output <- metaIPDA 
+#' @import lmerTest rvest
 #' @export
 metaIPDA = function(
     dir.location,
