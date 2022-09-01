@@ -955,8 +955,7 @@ metaIPDA = function(
     paste("chi-squared change = ",
           round(m0vsm1$Deviance[2], 4), sep = "")
   output_table$es.df.fixed[i] =
-    paste("chi-squared change = ",
-          round(m0vsm1$Df[2], 4), sep = "")
+          round(m0vsm1$Df[2], 4)
   m0vsm1.p =
     pchisq(m0vsm1$Deviance[2],
            m0vsm1$Df[2], lower.tail = F)
