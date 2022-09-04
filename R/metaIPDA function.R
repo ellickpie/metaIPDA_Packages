@@ -18,7 +18,7 @@ metaIPDA = function(
     Moderator.nature = "",
     Control = ""#must be numeric
 )
-
+  
 {
   # preloading####
   
@@ -41,8 +41,8 @@ metaIPDA = function(
   }
   
   #combining data ready for IPDA analysis below: data.analysis ####
-    #source("data combining.R")
-    {
+  #source("data combining.R")
+  {
     study = list()
     for (i in 1:length(list.files(dir.location)))
     {
@@ -132,8 +132,8 @@ metaIPDA = function(
   }
   
   #set contrasts for all factors below ####
-    #source("contrasts setting.R")
-    {
+  #source("contrasts setting.R")
+  {
     k = nlevels(data.analysis$study.cluster)
     contrasts(data.analysis$study.cluster) = contr.treatment(k) - (1 / k)
     
@@ -175,8 +175,8 @@ metaIPDA = function(
   }
   
   ##creating glm text ####
-    #source("glm text.R")
-    {
+  #source("glm text.R")
+  {
     if (Moderator == "") {
       glmtext_Moderator = ""
     }
@@ -236,8 +236,8 @@ metaIPDA = function(
   }
   
   ##main effect of IV clean Model####
-    #source("analysis main effect clean.R")
-    {
+  #source("analysis main effect clean.R")
+  {
     glmtext.clean.fixed =
       paste(glmtext.head.fixed,
             " * study.cluster",
@@ -258,8 +258,8 @@ metaIPDA = function(
   }
   
   ##main effect of IV full Model ####
-    #source("analysis main effect full.R")
-    {
+  #source("analysis main effect full.R")
+  {
     glmtext.full.fixed =
       paste(
         glmtext.head.fixed,
@@ -289,8 +289,8 @@ metaIPDA = function(
   }
   
   ##Simple effects of IV ####
-    #source ("analysis simple effect.R")
-    {
+  #source ("analysis simple effect.R")
+  {
     if (Moderator != "")
       
     {
@@ -707,7 +707,7 @@ metaIPDA = function(
             paste('round(IPDA.full.random.contrast.', i, '$coefficients[, "Pr(>|z|)"][2], 4)', sep = "")
           output_table$es.p.random[entry] = 
             eval(parse(text = contrast_text))
-       }
+        }
         
       }
     }
@@ -955,7 +955,7 @@ metaIPDA = function(
     paste("chi-squared change = ",
           round(m0vsm1$Deviance[2], 4), sep = "")
   output_table$es.df.fixed[i] =
-          round(m0vsm1$Df[2], 4)
+    round(m0vsm1$Df[2], 4)
   m0vsm1.p =
     pchisq(m0vsm1$Deviance[2],
            m0vsm1$Df[2], lower.tail = F)
@@ -984,10 +984,26 @@ metaIPDA = function(
       "df random",
       "p random" 
     )
-
   
-a = kable(output_table) %>% kableExtra::kable_styling() %>% 
-  kable_classic(full_width = F, html_font = "Arial", font_size = 14) %>% 
-  column_spec(., 1, width = "4cm") %>% column_spec(., 2:9, width = "2cm")
-return(a) 
+  
+  a = kable(output_table, 
+            col.names = c("",
+                          "Estimate",
+                          "Test",
+                          "df",
+                          "p",
+                          "Estimate",
+                          "Test",
+                          "df",
+                          "p"), 
+                          align = "lrrrrrrrr"
+  ) %>% kableExtra::kable_styling() %>% 
+    kable_classic(full_width = F, html_font = "Arial", font_size = 14) %>% 
+    column_spec(., 1, width = "4cm") %>% column_spec(., 2:9, width = "2cm") %>% 
+    add_header_above(c(
+      " " = 1,
+      "Fixed Effects" = 4,
+      "Random Effects" = 4))
+      
+  return(a) 
 }
