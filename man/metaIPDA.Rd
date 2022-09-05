@@ -40,8 +40,50 @@ kable outputs of IPDA meta analysis results
 \description{
 Meta-analyzing the data of individual studies under the same directory. All the 
 data must be in csv format. All the data should share the same DV name, the same
-IV name, the same Moderator name, and the same control names. 
+IV name, the same Moderator name, and the same control names. The output is in 
+kable format that displays in Viewer. 
+
+Please load the following packages/libraries before running:
+library(MASS)
+library(dplyr)
+library(stringr)
+library(rvest)
+library(lme4)
+library(lmerTest)
+library(DescTools)
+library(knitr)
+library(kableExtra)
+
 }
 \examples{
-output <- metaIPDA ()
+
+library(MASS)
+library(dplyr)
+library(stringr)
+library(rvest)
+library(lme4)
+library(lmerTest)
+library(DescTools)
+library(knitr)
+library(kableExtra)
+
+dir.location = "data for Case 02 in d breakdown"
+DV = "DV01.Progress.Perception"
+DV.nature = "continuous"
+IV = "IV02.Categorization"
+IV.nature = "nominal"
+Moderator = ""
+Moderator.nature = ""
+Control = ""
+
+metaIPDA(
+  dir.location,
+  DV,
+  DV.nature,
+  IV,
+  IV.nature,
+  Moderator,
+  Moderator.nature,
+  Control)
+
 }
