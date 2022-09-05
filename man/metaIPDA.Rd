@@ -16,15 +16,31 @@ metaIPDA(
 )
 }
 \arguments{
-\item{dir.location}{The directory location that contains individual studies data in csv format}
+\item{dir.location}{The directory location that contains individual studies data 
+in csv format. Must be in character format, e.g., ""}
+\item{DV}{the name of DV, must be in character format, e.g., "DV01". Only ONE 
+DV is allowed.}
+\item{DV.nature}{the nature of DV, either "nominal" or "continuous"}
+\item{IV}{the name of IV, must be in character format, e.g., "IV01". Only ONE 
+IV is allowed}
+\item{IV.nature}{the nature of IV, either "nominal" or "continuous"}
+\item{Moderator}{the name of Moderator, must be in character format, 
+e.g., "Mod01". Only ONE Moderator is allowed.}
+\item{Moderator.nature}{the nature of Moderator, either "nominal" or "continuous"}
+\item{Control}{the name of Control, must be in character format, e.g., "Control01". 
+The nature of the data, however, must be "continuous" i.e., numeric in R. 
+Multiple Controls are allowed in the format of c("control01"", "Control02", 
+Control03")}
 
-\item{DV}{the name of DV, must be in character format, e.g., "DV01"}
+
 }
 \value{
 kable outputs of IPDA meta analysis results
 }
 \description{
-add later
+Meta-analyzing the data of individual studies under the same directory. All the 
+data must be in csv format. All the data should share the same DV name, the same
+IV name, the same Moderator name, and the same control names. 
 }
 \examples{
 output <- metaIPDA ()
