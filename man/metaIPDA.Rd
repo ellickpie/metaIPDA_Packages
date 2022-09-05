@@ -16,8 +16,7 @@ metaIPDA(
 )
 }
 \arguments{
-\item{dir.location}{The directory location that contains individual studies data 
-in csv format. Must be in character format, e.g., ""}
+\item{dir.location}{The directory location that contains individual studies data in csv format. Must be in character format, e.g., "DDD"}
 \item{DV}{the name of DV, must be in character format, e.g., "DV01". Only ONE 
 DV is allowed.}
 \item{DV.nature}{the nature of DV, either "nominal" or "continuous"}
@@ -27,10 +26,6 @@ IV is allowed}
 \item{Moderator}{the name of Moderator, must be in character format, 
 e.g., "Mod01". Only ONE Moderator is allowed.}
 \item{Moderator.nature}{the nature of Moderator, either "nominal" or "continuous"}
-\item{Control}{the name of Control, must be in character format, e.g., "Control01". 
-The nature of the data, however, must be "continuous" i.e., numeric in R. 
-Multiple Controls are allowed in the format of c("control01"", "Control02", 
-Control03")}
 
 
 }
