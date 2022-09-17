@@ -129,7 +129,8 @@ metaIPDA = function(
     }
     
     data.analysis = do.call(rbind, study)
-    write.csv(data.analysis, "data_combined.csv")
+    filname = paste(dir.location, "_data_combined.csv")
+    write.csv(data.analysis, filname)
   }
   
   #set contrasts for all factors below ####
