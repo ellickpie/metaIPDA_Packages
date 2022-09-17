@@ -129,6 +129,7 @@ metaIPDA = function(
     }
     
     data.analysis = do.call(rbind, study)
+    write.csv(data.analysis, "data_combined.csv")
   }
   
   #set contrasts for all factors below ####
